@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int numberToGuess, guessedNumber, attempts = 0;
+    srand((unsigned int)time(NULL));
+    numberToGuess = rand() % 100 + 1;  // 生成1到100的随机数
+
+    printf("欢迎来到猜数字游戏！请猜一个1到100之间的数字。\n");
+
+    do {
+        printf("请输入你猜的数字: ");
+        scanf("%d", &guessedNumber);
+        attempts++;
+
+        if (guessedNumber > numberToGuess) {
+            printf("猜大了，再试一次！\n");
+        } else if (guessedNumber < numberToGuess) {
+            printf("猜小了，再试一次！\n");
+        } else {
+            printf("恭喜你，猜对了！你一共用了 %d 次尝试。\n", attempts);
+        }
+
+    } while (guessedNumber!= numberToGuess);
+
+    return 0;
+}
